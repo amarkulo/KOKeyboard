@@ -44,6 +44,8 @@
 @property (nonatomic, retain) UIImageView *foregroundView;
 @property (nonatomic, assign) BOOL trackPoint;
 @property (nonatomic, assign) BOOL tabButton;
+@property (nonatomic, assign) BOOL undoButton;
+@property (nonatomic, assign) BOOL redoButton;
 @property (nonatomic, retain) NSDate *firstTapDate;
 @property (nonatomic, assign) BOOL selecting;
 @property (nonatomic, retain) UIImage *blueImage;
@@ -57,7 +59,7 @@
 
 @implementation KOSwipeButton
 
-@synthesize labels, touchBeginPoint, selectedLabel, delegate, bgView, trackPoint, tabButton, selecting, firstTapDate, blueImage, pressedImage, foregroundView, blueFgImage, pressedFgImage;
+@synthesize labels, touchBeginPoint, selectedLabel, delegate, bgView, trackPoint, tabButton, undoButton, redoButton, selecting, firstTapDate, blueImage, pressedImage, foregroundView, blueFgImage, pressedFgImage;
 
 - (void)setFrame:(CGRect)frame
 {
@@ -146,24 +148,47 @@
         [[labels objectAtIndex:i] setText:[newKeys substringWithRange:NSMakeRange(i, 1)]];
         
         if ([[newKeys substringToIndex:1] isEqualToString:@"◉"] |
-            [[newKeys substringToIndex:1] isEqualToString:@"T"]) {
+            [[newKeys substringToIndex:1] isEqualToString:@"T"] |
+            [[newKeys substringToIndex:1] isEqualToString:@"U"] |
+            [[newKeys substringToIndex:1] isEqualToString:@"R"] ) {
             
             trackPoint = [[newKeys substringToIndex:1] isEqualToString:@"◉"];
-            tabButton = [[newKeys substringToIndex:1] isEqualToString:@"T"];
-            
+            tabButton =  [[newKeys substringToIndex:1] isEqualToString:@"T"];
+            undoButton = [[newKeys substringToIndex:1] isEqualToString:@"U"];
+            redoButton = [[newKeys substringToIndex:1] isEqualToString:@"R"];
+
             if (i != 2)
                 [[labels objectAtIndex:i] setHidden:YES];
             else {
-                if (trackPoint) {
+                if (tabButton) {
+                    
+                    [[labels objectAtIndex:i] setText:@"TAB"];
+                    [[labels objectAtIndex:i] setFrame:self.bounds];
+                    
+                } else {
+
                     [[labels objectAtIndex:i] setHidden:YES];
                     
                     [[labels objectAtIndex:i] setFont:[UIFont systemFontOfSize:20]];
+                    
                     blueImage = [UIImage imageNamed:@"key-blue.png"];
                     pressedImage = [UIImage imageNamed:@"key-pressed.png"];
                     
-                    UIImage *bgImg1 = [UIImage imageNamed:@"hal-black.png"];
-                    UIImage *bgImg2 = [UIImage imageNamed:@"hal-blue.png"];
-                    blueFgImage = [UIImage imageNamed:@"hal-white.png"];
+                    UIImage *bgImg1, *bgImg2;
+                    
+                    if (trackPoint) {
+                        bgImg1 = [UIImage imageNamed:@"hal-black.png"];
+                        bgImg2 = [UIImage imageNamed:@"hal-blue.png"];
+                        blueFgImage = [UIImage imageNamed:@"hal-white.png"];
+                    } else if (undoButton) {
+                        bgImg1 = [UIImage imageNamed:@"undo-black.png"];
+                        bgImg2 = [UIImage imageNamed:@"undo-blue.png"];
+                    } else {
+                        bgImg1 = [UIImage imageNamed:@"redo-black.png"];
+                        bgImg2 = [UIImage imageNamed:@"redo-blue.png"];
+                    }
+                    
+
                     pressedFgImage = bgImg2;
                     foregroundView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 19, 19)];
                     foregroundView.frame = CGRectMake((int)((self.frame.size.width - foregroundView.frame.size.width) / 2), (int)((self.frame.size.height - foregroundView.frame.size.height) / 2), 19, 19);
@@ -171,10 +196,7 @@
                     [foregroundView setHighlightedImage:bgImg2];
                     foregroundView.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
                     [self addSubview:foregroundView];
-
-                } else {
-                    [[labels objectAtIndex:i] setText:@"TAB"];
-                    [[labels objectAtIndex:i] setFrame:self.bounds];
+                    
                 }
             }
         }
@@ -258,6 +280,10 @@
     if (selectedLabel != nil) {
         if (tabButton) {
             [delegate insertText:@"\t"];
+        } else if (undoButton) {
+            [delegate undoAction];
+        } else if (redoButton) {
+            [delegate redoAction];
         } else if (! trackPoint) {
             NSString *textToInsert = selectedLabel.text;
             [delegate insertText:textToInsert];

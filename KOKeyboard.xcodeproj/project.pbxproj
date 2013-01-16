@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090FC3DC16A6F6DC00ECF491 /* redo-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 090FC3D416A6F6DC00ECF491 /* redo-black.png */; };
+		090FC3DD16A6F6DC00ECF491 /* redo-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 090FC3D516A6F6DC00ECF491 /* redo-black@2x.png */; };
+		090FC3DE16A6F6DC00ECF491 /* redo-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 090FC3D616A6F6DC00ECF491 /* redo-blue.png */; };
+		090FC3DF16A6F6DC00ECF491 /* redo-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 090FC3D716A6F6DC00ECF491 /* redo-blue@2x.png */; };
+		090FC3E016A6F6DC00ECF491 /* undo-black.png in Resources */ = {isa = PBXBuildFile; fileRef = 090FC3D816A6F6DC00ECF491 /* undo-black.png */; };
+		090FC3E116A6F6DC00ECF491 /* undo-black@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 090FC3D916A6F6DC00ECF491 /* undo-black@2x.png */; };
+		090FC3E216A6F6DC00ECF491 /* undo-blue.png in Resources */ = {isa = PBXBuildFile; fileRef = 090FC3DA16A6F6DC00ECF491 /* undo-blue.png */; };
+		090FC3E316A6F6DC00ECF491 /* undo-blue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 090FC3DB16A6F6DC00ECF491 /* undo-blue@2x.png */; };
 		665C982815CC2C91001B6908 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665C982715CC2C91001B6908 /* UIKit.framework */; };
 		665C982A15CC2C91001B6908 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665C982915CC2C91001B6908 /* Foundation.framework */; };
 		665C982C15CC2C91001B6908 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 665C982B15CC2C91001B6908 /* CoreGraphics.framework */; };
@@ -31,6 +39,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090FC3D416A6F6DC00ECF491 /* redo-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redo-black.png"; sourceTree = "<group>"; };
+		090FC3D516A6F6DC00ECF491 /* redo-black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redo-black@2x.png"; sourceTree = "<group>"; };
+		090FC3D616A6F6DC00ECF491 /* redo-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redo-blue.png"; sourceTree = "<group>"; };
+		090FC3D716A6F6DC00ECF491 /* redo-blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "redo-blue@2x.png"; sourceTree = "<group>"; };
+		090FC3D816A6F6DC00ECF491 /* undo-black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "undo-black.png"; sourceTree = "<group>"; };
+		090FC3D916A6F6DC00ECF491 /* undo-black@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "undo-black@2x.png"; sourceTree = "<group>"; };
+		090FC3DA16A6F6DC00ECF491 /* undo-blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "undo-blue.png"; sourceTree = "<group>"; };
+		090FC3DB16A6F6DC00ECF491 /* undo-blue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "undo-blue@2x.png"; sourceTree = "<group>"; };
 		665C982315CC2C91001B6908 /* KOKeyboard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KOKeyboard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		665C982715CC2C91001B6908 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		665C982915CC2C91001B6908 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -130,6 +146,14 @@
 		665C986215CC2ED3001B6908 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				090FC3D416A6F6DC00ECF491 /* redo-black.png */,
+				090FC3D516A6F6DC00ECF491 /* redo-black@2x.png */,
+				090FC3D616A6F6DC00ECF491 /* redo-blue.png */,
+				090FC3D716A6F6DC00ECF491 /* redo-blue@2x.png */,
+				090FC3D816A6F6DC00ECF491 /* undo-black.png */,
+				090FC3D916A6F6DC00ECF491 /* undo-black@2x.png */,
+				090FC3DA16A6F6DC00ECF491 /* undo-blue.png */,
+				090FC3DB16A6F6DC00ECF491 /* undo-blue@2x.png */,
 				665C984415CC2EC5001B6908 /* hal-black.png */,
 				665C984515CC2EC5001B6908 /* hal-black@2x.png */,
 				665C984615CC2EC5001B6908 /* hal-blue.png */,
@@ -222,6 +246,14 @@
 				665C985D15CC2EC5001B6908 /* key-pressed@2x.png in Resources */,
 				665C985E15CC2EC5001B6908 /* key.png in Resources */,
 				665C985F15CC2EC5001B6908 /* key@2x.png in Resources */,
+				090FC3DC16A6F6DC00ECF491 /* redo-black.png in Resources */,
+				090FC3DD16A6F6DC00ECF491 /* redo-black@2x.png in Resources */,
+				090FC3DE16A6F6DC00ECF491 /* redo-blue.png in Resources */,
+				090FC3DF16A6F6DC00ECF491 /* redo-blue@2x.png in Resources */,
+				090FC3E016A6F6DC00ECF491 /* undo-black.png in Resources */,
+				090FC3E116A6F6DC00ECF491 /* undo-black@2x.png in Resources */,
+				090FC3E216A6F6DC00ECF491 /* undo-blue.png in Resources */,
+				090FC3E316A6F6DC00ECF491 /* undo-blue@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

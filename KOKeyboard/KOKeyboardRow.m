@@ -74,7 +74,7 @@
     int buttonWidth = (barWidth - 2 * leftMargin - (buttonCount - 1) * buttonSpacing) / buttonCount;
     leftMargin = (barWidth - buttonWidth * buttonCount - buttonSpacing * (buttonCount - 1)) / 2;
     
-    NSString *keys = @"TTTTT()\"[]{}'<>\\/$´`~^|€£◉◉◉◉◉-+=%*!?#@&_:;,.1203467589";
+    NSString *keys = @"TTTTT()\"[]{}'<>\\/$´`~^|€£◉◉◉◉◉-+=%*!?#@&_:;,.UUUUURRRRR";
     
     for (int i = 0; i < buttonCount; i++) {
         KOSwipeButton *b = [[KOSwipeButton alloc] initWithFrame:CGRectMake(leftMargin + i * (buttonSpacing + buttonWidth), topMargin + (barHeight - buttonHeight) / 2, buttonWidth, buttonHeight)];
@@ -116,6 +116,14 @@
     UITextRange *r = [textView textRangeFromPosition:p1 toPosition:p2];
     
     textView.selectedTextRange = r;
+}
+
+- (void)undoAction {
+    [[textView undoManager] undo];
+}
+
+- (void)redoAction {
+    [[textView undoManager] redo];
 }
 
 @end
